@@ -1,0 +1,10 @@
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\bin\Debug\MovieWebsite.Domain.dll.config
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\bin\Debug\MovieWebsite.Domain.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\bin\Debug\MovieWebsite.Domain.pdb
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\bin\Debug\EntityFramework.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\bin\Debug\EntityFramework.xml
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\obj\Debug\MovieWebsite.Domain.csprojResolveAssemblyReference.cache
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\obj\Debug\MovieWebsite.Domain.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\obj\Debug\MovieWebsite.Domain.pdb

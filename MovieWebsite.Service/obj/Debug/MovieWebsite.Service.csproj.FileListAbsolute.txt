@@ -1,0 +1,11 @@
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\bin\Debug\MovieWebsite.Service.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\bin\Debug\MovieWebsite.Service.pdb
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\bin\Debug\MovieWebsite.Domain.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\bin\Debug\EntityFramework.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\bin\Debug\MovieWebsite.Domain.pdb
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\bin\Debug\EntityFramework.xml
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\obj\Debug\MovieWebsite.Service.csprojResolveAssemblyReference.cache
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\obj\Debug\MovieWebsite.Service.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\obj\Debug\MovieWebsite.Service.pdb
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\bin\Debug\Ninject.dll
+D:\TortFolder\MovieWebsite\MovieWebsite.Service\bin\Debug\Ninject.xml

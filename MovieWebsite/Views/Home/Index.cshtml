@@ -1,0 +1,65 @@
+﻿@using PagedList.Mvc
+@using MovieWebsite.Models
+
+@model MovieListViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr/>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        by 
+        @Html.DropDownListFor(m => m.SearchBy, new List<SelectListItem>() {
+            new SelectListItem { Text = "Title", Value = "Title"},
+            new SelectListItem { Text = "Genre", Value = "Genre"},
+            new SelectListItem { Text = "Actor", Value = "Actor"}
+            }) 
+        <input type="submit" value="Search" class="btn" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Genre", "Index", new { sortOrder = ViewBag.GradeSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.TextBox("List of Actors")
+        </th>
+    </tr>
+    @foreach (var item in Model.Movies)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => (item.Title))
+            </td>
+            <td>
+                <ul>
+                    @foreach (var genre in item.Genres)
+                    {
+                        <li>@Html.DisplayFor(g => genre.Name)</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    @foreach (var actor in item.Actors)
+                    {
+                        <li>@Html.DisplayFor(a => actor.FullName)</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    }
+
+</table>
