@@ -8,3 +8,5 @@ D:\TortFolder\MovieWebsite\MovieWebsite.Domain\bin\Debug\EntityFramework.SqlServ
 D:\TortFolder\MovieWebsite\MovieWebsite.Domain\obj\Debug\MovieWebsite.Domain.csprojResolveAssemblyReference.cache
 D:\TortFolder\MovieWebsite\MovieWebsite.Domain\obj\Debug\MovieWebsite.Domain.dll
 D:\TortFolder\MovieWebsite\MovieWebsite.Domain\obj\Debug\MovieWebsite.Domain.pdb
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\obj\Debug\MovieWebsite.Domain.Migrations.Initial.resources
+D:\TortFolder\MovieWebsite\MovieWebsite.Domain\obj\Debug\MovieWebsite.Domain.csproj.GenerateResource.Cache

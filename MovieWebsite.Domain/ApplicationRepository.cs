@@ -13,9 +13,9 @@ namespace MovieWebsite.Domain
         internal ApplicationDbContext context;
         internal DbSet<T> dbSet;
 
-        public ApplicationRepository(ApplicationDbContext context)
+        public ApplicationRepository()
         {
-            this.context = context;
+            this.context = new ApplicationDbContext("DefaultConnection");
             dbSet = context.Set<T>();
         }
 

@@ -47,7 +47,7 @@
     <Compile Include="Interfaces\IMoviesService.cs" />
     <Compile Include="MoviesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceModule.cs" />
+    <Compile Include="ServiceNinjectModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieWebsite.Domain\MovieWebsite.Domain.csproj">

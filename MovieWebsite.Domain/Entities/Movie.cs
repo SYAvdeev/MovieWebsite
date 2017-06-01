@@ -14,6 +14,7 @@ namespace MovieWebsite.Domain.Entities
         public string Description { get; set; }
 
         public virtual ICollection<Actor> Actors { get; set; }
+
         public virtual ICollection<Genre> Genres { get; set; }
     }
 }

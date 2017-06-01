@@ -25,7 +25,7 @@ namespace MovieWebsite.Domain
             get
             {
                 if (moviesRepository == null)
-                    moviesRepository = new ApplicationRepository<Movie>(db);
+                    moviesRepository = new ApplicationRepository<Movie>();
                 return moviesRepository;
             }
         }
@@ -35,7 +35,7 @@ namespace MovieWebsite.Domain
             get
             {
                 if (actorsRepository == null)
-                    actorsRepository = new ApplicationRepository<Actor>(db);
+                    actorsRepository = new ApplicationRepository<Actor>();
                 return actorsRepository;
             }
         }
@@ -45,7 +45,7 @@ namespace MovieWebsite.Domain
             get
             {
                 if (genresRepository == null)
-                    genresRepository = new ApplicationRepository<Genre>(db);
+                    genresRepository = new ApplicationRepository<Genre>();
                 return genresRepository;
             }
         }
