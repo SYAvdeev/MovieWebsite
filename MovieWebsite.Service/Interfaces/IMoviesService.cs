@@ -10,9 +10,8 @@ namespace MovieWebsite.Service.Interfaces
 {
     public interface IMoviesService
     {
-        IEnumerable<Movie> GetMoviesList(
-            Expression<Func<Movie, bool>> filter = null,
-            Func<IQueryable<Movie>, IOrderedQueryable<Movie>> orderBy = null);
+        IOrderedEnumerable<Movie> GetMoviesList(string searchString = "",
+            string filterBy = "Title", string orderBy = "asc");
 
         Movie GetMovie(int? id);
 

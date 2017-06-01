@@ -9,18 +9,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<hr/>
-
-@using (Html.BeginForm())
+@using (Html.BeginForm(new { pageNum = 1 }))
 {
     <p>
-        Find: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        Find: @Html.TextBoxFor(m => m.SearchString)
         by 
-        @Html.DropDownListFor(m => m.SearchBy, new List<SelectListItem>() {
+        @Html.DropDownListFor(m => m.FilterBy, new List<SelectListItem>() {
             new SelectListItem { Text = "Title", Value = "Title"},
-            new SelectListItem { Text = "Genre", Value = "Genre"},
-            new SelectListItem { Text = "Actor", Value = "Actor"}
-            }) 
+            new SelectListItem { Text = "Genres", Value = "Genres"},
+            new SelectListItem { Text = "Actors", Value = "Actors"}
+            })
+        
+        
         <input type="submit" value="Search" class="btn" />
     </p>
 }
@@ -28,38 +28,43 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Title", "Index", new {
+           orderBy = (String.IsNullOrEmpty(Model.OrderBy) || Model.OrderBy == "desc") ? "asc" : "desc",
+           pageNum = Model.Movies.PageNumber})
         </th>
         <th>
-            @Html.ActionLink("Genre", "Index", new { sortOrder = ViewBag.GradeSortParam, currentFilter = ViewBag.CurrentFilter })
+            @Html.Label("Genres")
         </th>
         <th>
-            @Html.TextBox("List of Actors")
+            @Html.Label("List of Actors")
         </th>
     </tr>
-    @foreach (var item in Model.Movies)
+    @foreach (var curMovie in Model.Movies)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => (item.Title))
+                @Html.ActionLink(curMovie.Title, "Details", new { id = curMovie.ID })
             </td>
             <td>
                 <ul>
-                    @foreach (var genre in item.Genres)
+                    @foreach (var curGenre in curMovie.Genres)
                     {
-                        <li>@Html.DisplayFor(g => genre.Name)</li>
+                        <li>@Html.DisplayFor(m => curGenre.Name)</li>
                     }
                 </ul>
             </td>
             <td>
                 <ul>
-                    @foreach (var actor in item.Actors)
+                    @foreach (var curActor in curMovie.Actors)
                     {
-                        <li>@Html.DisplayFor(a => actor.FullName)</li>
+                        <li>@Html.DisplayFor(m => curActor.FullName)</li>
                     }
                 </ul>
             </td>
         </tr>
     }
-
 </table>
+
+Page @(Model.Movies.PageCount < Model.Movies.PageNumber ? 0 : Model.Movies.PageNumber) of @Model.Movies.PageCount
+
+@Html.PagedListPager(Model.Movies, page => Url.Action("Index", new { orderBy = Model.OrderBy, pageNum = page }))

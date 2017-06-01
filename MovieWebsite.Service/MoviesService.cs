@@ -20,25 +20,40 @@ namespace MovieWebsite.Service
             Database = database;
         }
 
-        public IEnumerable<Movie> GetMoviesList(
-            Expression<Func<Movie, bool>> filter = null,
-            Func<IQueryable<Movie>, IOrderedQueryable<Movie>> orderBy = null)
+        public IOrderedEnumerable<Movie> GetMoviesList( string searchString = "",
+            string filterBy = "Title", string orderBy = "asc")
         {
-            IQueryable<Movie> query = Database.Movies.Get().AsQueryable();
-
-            if (filter != null)
+            IEnumerable<Movie> movies = Database.Movies.Get();
+            
+            switch (filterBy ?? "Title")
             {
-                query = query.Where(filter);
+                case "Title":
+                    movies = movies.Where(
+                        m => m.Title.Contains(searchString ?? ""));
+                    break;
+                case "Genres":
+                    movies = movies.Where(
+                        m => m.Genres.Where(
+                            g => g.Name.Contains(searchString ?? "")).Any());
+                    break;
+                case "Actors":
+                    movies = movies.Where(
+                        m => m.Actors.Where(
+                            a => (a.FirstName + " " + a.LastName).Contains(searchString ?? "")).Any());
+                    break;
+                default:
+                    break;
+            }
+            
+            switch(orderBy ?? "asc")
+            {
+                case "desc":
+                    return movies.OrderByDescending(m => m.Title);
+                case "asc":
+                default:
+                    return movies.OrderBy(m => m.Title);
             }
 
-            if (orderBy != null)
-            {
-                return orderBy(query).ToList();
-            }
-            else
-            {
-                return query.ToList();
-            }
         }
 
         public Movie GetMovie(int? id)

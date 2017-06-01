@@ -28,7 +28,7 @@ namespace MovieWebsite.Domain
         }
     }
 
-    public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext db)
         {
@@ -38,12 +38,25 @@ namespace MovieWebsite.Domain
             db.Genres.Add(new Genre { Name = "Sci-Fi" });
             db.Genres.Add(new Genre { Name = "Comedy" });
 
+            db.SaveChanges();
+
+            //var genres = new List<Genre>()
+            //{
+            //    new Genre { ID = 1, Name = "Drama" },
+            //    new Genre { ID = 2, Name = "Drama" },
+            //    new Genre { ID = 3, Name = "Drama" },
+            //    new Genre { ID = 4, Name = "Drama" },
+            //    new Genre { ID = 5, Name = "Drama" }
+            //};
+
             db.Actors.Add(new Actor { FirstName = "Billy Bob", LastName = "Thornton" });
             db.Actors.Add(new Actor { FirstName = "Tony", LastName = "Cox" });
             db.Actors.Add(new Actor { FirstName = "Tim", LastName = "Robbins" });
             db.Actors.Add(new Actor { FirstName = "Morgan", LastName = "Freeman" });
             db.Actors.Add(new Actor { FirstName = "Sigourney", LastName = "Weaver" });
-            
+
+            db.SaveChanges();
+
             db.Movies.Add(new Movie
             {
                 Title = "The Shawshank Redemption",

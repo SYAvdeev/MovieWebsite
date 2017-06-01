@@ -1,0 +1,50 @@
+﻿@model MovieWebsite.Models.MovieListItemModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Html.DisplayFor(m => m.Title)</h2>
+
+<hr />
+
+<dl class="dl-horizontal">
+    <dt style="font-weight:bold">
+        @Html.DisplayNameFor(m => m.Genres)
+    </dt>
+
+    <dd>
+        <ul>
+            @foreach (var curGenre in Model.Genres)
+            {
+                <li>@Html.DisplayFor(m => curGenre.Name)</li>
+            }
+        </ul>
+    </dd>
+
+    <dt style="font-weight:bold">
+        @Html.DisplayNameFor(m => m.Actors)
+    </dt>
+
+    <dd>
+        <ul>
+            @foreach (var curActor in Model.Actors)
+            {
+                <li>@Html.DisplayFor(m => curActor.FullName)</li>
+            }
+        </ul>
+    </dd>
+
+    <dt style="font-weight:bold">
+        @Html.DisplayNameFor(m => m.Description)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(m => m.Description)
+    </dd>
+
+</dl>
+
+@Html.ActionLink("Back to List", "Index")
+
