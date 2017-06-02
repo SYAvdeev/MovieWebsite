@@ -52,7 +52,6 @@ namespace MovieWebsite.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-
             return View(MapMovieToView(MoviesService.GetMovie(id)));
         }
 

@@ -53,7 +53,6 @@ namespace MovieWebsite.Service
                 default:
                     return movies.OrderBy(m => m.Title);
             }
-
         }
 
         public Movie GetMovie(int? id)
